@@ -5,7 +5,7 @@ var request     = require("request"),
     csv         = require('csv');
 
 request({
-  uri: "http://frontenddesignconference.com/attending",
+  uri: "", //http://frontenddesignconference.com/attending
 }, function(error, response, body) {
 
     var parsedHTML = $.load(body);
@@ -28,6 +28,8 @@ request({
       list.push(attendee);      
     });
 
-    console.log(list);
+    csv()
+    .from( list)
+    .to( __dirname+'/list.csv' )
 });
 
